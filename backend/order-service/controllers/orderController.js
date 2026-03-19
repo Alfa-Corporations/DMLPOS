@@ -20,6 +20,8 @@ class OrderController {
       if (error) return res.status(400).json({ error: error.details[0].message });
 
       const order = await orderService.createOrder(req.body);
+      const io = req.app.get('io');
+      io.emit('orderCreated', order);
       res.status(201).json(order);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -56,6 +58,8 @@ class OrderController {
       if (error) return res.status(400).json({ error: error.details[0].message });
 
       const order = await orderService.updateOrderStatus(id, status);
+      const io = req.app.get('io');
+      io.emit('orderUpdated', order);
       res.json(order);
     } catch (error) {
       res.status(500).json({ error: error.message });
