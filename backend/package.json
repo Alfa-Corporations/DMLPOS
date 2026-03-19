@@ -1,0 +1,30 @@
+{
+  "name": "dmlpos-backend",
+  "version": "1.0.0",
+  "description": "Backend de microservicios para DMLPOS",
+  "scripts": {
+    "start": "concurrently \"npm run start:auth\" \"npm run start:user\" \"npm run start:order\" \"npm run start:inventory\" \"npm run start:payment\" \"npm run start:notification\" \"npm run start:analytics\" \"npm run start:billing\" \"npm run start:gateway\"",
+    "start:auth": "cd auth-service && npm start",
+    "start:user": "cd user-service && npm start",
+    "start:order": "cd order-service && npm start",
+    "start:inventory": "cd inventory-service && npm start",
+    "start:payment": "cd payment-service && npm start",
+    "start:notification": "cd notification-service && npm start",
+    "start:analytics": "cd analytics-service && npm start",
+    "start:billing": "cd billing-service && npm start",
+    "start:gateway": "cd api-gateway && npm start",
+    "dev": "concurrently \"npm run dev:auth\" \"npm run dev:user\" \"npm run dev:order\" \"npm run dev:inventory\" \"npm run dev:payment\" \"npm run dev:notification\" \"npm run dev:analytics\" \"npm run dev:billing\" \"npm run dev:gateway\"",
+    "dev:auth": "cd auth-service && npm run dev",
+    "dev:user": "cd user-service && npm run dev",
+    "dev:order": "cd order-service && npm run dev",
+    "dev:inventory": "cd inventory-service && npm run dev",
+    "dev:payment": "cd payment-service && npm run dev",
+    "dev:notification": "cd notification-service && npm run dev",
+    "dev:analytics": "cd analytics-service && npm run dev",
+    "dev:billing": "cd billing-service && npm run dev",
+    "dev:gateway": "cd api-gateway && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
