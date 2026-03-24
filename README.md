@@ -1,11 +1,11 @@
-# DMLPOS - Plataforma Administrativa
+# DIURPOS - Plataforma Administrativa
 
 Sistema de punto de venta moderno y escalable construido con microservicios.
 
 ## Estructura del Proyecto
 
 ```
-DMLPOS/
+DIURPOS/
 ├── backend/
 │   ├── api-gateway/          # API Gateway (puerto 3000)
 │   ├── auth-service/         # Servicio de autenticación (puerto 3001)

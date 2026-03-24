@@ -1,4 +1,4 @@
-# Script de inicialización para DMLPOS (sin Docker)
+# Script de inicialización para DIURPOS (sin Docker)
 
 Write-Host "Instalando dependencias del backend..."
 foreach ($service in @("api-gateway", "auth-service", "user-service", "order-service", "inventory-service", "payment-service", "notification-service", "analytics-service", "billing-service")) {
@@ -15,5 +15,5 @@ npm install
 Set-Location ..
 
 Write-Host "Asegúrate de que PostgreSQL esté corriendo en localhost:5432 con usuario 'admin' y password 'password'"
-Write-Host "Crea la base de datos 'dmlpos' si no existe"
-Write-Host "Base de DMLPOS lista para desarrollo."
+Write-Host "Crea la base de datos 'diurpos' si no existe"
+Write-Host "Base de DIURPOS lista para desarrollo."

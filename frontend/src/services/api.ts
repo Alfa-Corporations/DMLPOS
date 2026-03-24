@@ -1,17 +1,32 @@
 import axios from 'axios';
-
-const API_BASE_URL = 'http://localhost:3000';
+import { store } from '../store/store';
 
 const api = axios.create({
-  baseURL: API_BASE_URL
+  baseURL: 'http://localhost:8000/api/v1'
 });
 
-api.interceptors.request.use(config => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+// Interceptor para agregar token
+api.interceptors.request.use(
+  config => {
+    const token = store.getState().auth.token;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  error => Promise.reject(error)
+);
+
+// Interceptor para manejar refresh token
+api.interceptors.response.use(
+  response => response,
+  async error => {
+    if (error.response?.status === 401) {
+      // Lógica para refresh token
+      // ...
+    }
+    return Promise.reject(error);
   }
-  return config;
-});
+);
 
 export default api;
